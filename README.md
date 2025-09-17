@@ -64,3 +64,121 @@ You’ll be evaluated on:
 * Effective integration of CSS and JS for interactive effects
 * Code readability, modularity, and documentation
 * Creativity and user experience
+
+Html File
+// Function with parameters and return value
+function calculateArea(length, width) {
+  return length * width;
+}
+
+// Trigger CSS animation with JS
+const animateBtn = document.getElementById("animateBtn");
+const box = document.getElementById("box");
+
+animateBtn.addEventListener("click", function() {
+  // Restart animation
+  box.style.animation = "none";
+  void box.offsetWidth; // trigger reflow
+  box.style.animation = "moveBox 2s ease-in-out";
+});
+
+// Handle form submission to calculate area
+document.getElementById("areaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let length = parseFloat(document.getElementById("length").value);
+  let width = parseFloat(document.getElementById("width").value);
+
+  if (isNaN(length) || isNaN(width)) {
+    document.getElementById("result").textContent = "Please enter valid numbers.";
+    return;
+  }
+
+  let area = calculateArea(length, width);
+  document.getElementById("result").textContent = `The area is ${area}.`;
+});
+
+Styles.css
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9;
+  color: #333;
+}
+
+header, footer {
+  text-align: center;
+  background: #3498db;
+  color: #fff;
+  padding: 1rem;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2ecc71;
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  background: coral;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* Keyframes animation */
+@keyframes moveBox {
+  0%   { transform: translateX(0); background: coral; }
+  50%  { transform: translateX(200px); background: lightblue; }
+  100% { transform: translateX(0); background: coral; }
+}
+
+script.js
+// Function with parameters and return value
+function calculateArea(length, width) {
+  return length * width;
+}
+
+// Trigger CSS animation with JS
+const animateBtn = document.getElementById("animateBtn");
+const box = document.getElementById("box");
+
+animateBtn.addEventListener("click", function() {
+  // Restart animation
+  box.style.animation = "none";
+  void box.offsetWidth; // trigger reflow
+  box.style.animation = "moveBox 2s ease-in-out";
+});
+
+// Handle form submission to calculate area
+document.getElementById("areaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let length = parseFloat(document.getElementById("length").value);
+  let width = parseFloat(document.getElementById("width").value);
+
+  if (isNaN(length) || isNaN(width)) {
+    document.getElementById("result").textContent = "Please enter valid numbers.";
+    return;
+  }
+
+  let area = calculateArea(length, width);
+  document.getElementById("result").textContent = `The area is ${area}.`;
+});
+
